@@ -12,9 +12,12 @@ create table if not exists public.demo_accounts (
   user_id uuid not null references auth.users(id) on delete cascade,
   name text not null default 'Demo Account',
   starting_balance numeric(14,2) not null default 10000 check (starting_balance >= 0),
+  balance numeric(14,2) not null default 10000 check (balance >= 0),
   currency text not null default 'USD',
   created_at timestamptz not null default now()
 );
+
+alter table public.demo_accounts add column if not exists balance numeric(14,2) not null default 10000 check (balance >= 0);
 
 create table if not exists public.journal_entries (
   id uuid primary key default gen_random_uuid(),
