@@ -1,2 +1,2 @@
-# Rajo
-RAJO AI Trading Platform
+# Raad
+RAAD JOURNAL 
